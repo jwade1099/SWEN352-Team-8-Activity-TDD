@@ -1,6 +1,7 @@
 package edu.rit.swen352.tdd;
 
 import java.util.NoSuchElementException;
+import java.util.function.Function;
 
 /**
  * MyOptional contains a single element or nothing at all.
@@ -58,6 +59,13 @@ public class MyOptional<T> {
             throw new NoSuchElementException("No value provided in MyOptional");
         }
         return value;
+    }
+
+    public <U> MyOptional<U> map(Function<? super T, ? extends U> mapper) {
+        if (!isPresent()) {
+            return empty();
+        }
+        return ofNullable(mapper.apply(value));
     }
 
     public boolean isPresent() {
