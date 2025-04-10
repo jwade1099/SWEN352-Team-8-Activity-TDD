@@ -3,6 +3,8 @@ package edu.rit.swen352.tdd;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.NoSuchElementException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -46,4 +48,19 @@ class MyOptionalTest {
         assertFalse(optional.isPresent());
     }
 
+    @DisplayName("Test for optional get method when has value, should return the value")
+    @Test
+    void getValuePresent() {
+        MyOptional<String> optional = MyOptional.of("value");
+
+        assertEquals("value", optional.get());
+    }
+
+    @DisplayName("Test for optional get method when empty, should throw a NSE")
+    @Test
+    void getValueEmpty() {
+        MyOptional<String> optional = MyOptional.empty();
+
+        assertThrows(NoSuchElementException.class, optional.get());
+    }
 }
