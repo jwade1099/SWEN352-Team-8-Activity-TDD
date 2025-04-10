@@ -61,6 +61,6 @@ class MyOptionalTest {
     void getValueEmpty() {
         MyOptional<String> optional = MyOptional.empty();
 
-        assertThrows(NoSuchElementException.class, optional.get());
+        assertThrows(NoSuchElementException.class, () -> optional.get());
     }
 }
