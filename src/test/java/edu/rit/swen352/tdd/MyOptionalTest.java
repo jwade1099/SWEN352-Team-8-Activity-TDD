@@ -84,4 +84,29 @@ class MyOptionalTest {
 
         assertFalse(mapped.isPresent());
     }
+
+    @DisplayName("If Present testing consumption if value present")
+    @Test
+    void ifPresentNotNull() {
+        MyOptional<String> optional = MyOptional.of("hello");
+
+        StringBuilder output = new StringBuilder();
+
+        optional.ifPresent(value -> output.append(value));
+
+        assertEquals("hello", output.toString());
+    }
+
+    @DisplayName("If Present testing consumption if empty")
+    @Test
+    void ifPresentNull() {
+        MyOptional<String> optional = MyOptional.empty();
+
+        StringBuilder output = new StringBuilder();
+
+        optional.ifPresent(value -> output.append(value));
+
+        assertEquals("", output.toString());
+    }
+
 }
