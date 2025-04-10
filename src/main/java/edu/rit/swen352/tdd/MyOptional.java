@@ -24,12 +24,12 @@ package edu.rit.swen352.tdd;
  * @param <T> the type of element.
  */
 public class MyOptional<T> {
-    private static final MyOptional<?> EMPTY = new MyOptional<>();
+    private static final MyOptional<?> EMPTY = new MyOptional<>(null);
 
     private final T value;
 
-    private MyOptional() {
-        this.value = null;
+    private MyOptional(T value) {
+        this.value = value;
     }
 
     public static <T> MyOptional<T> empty() {
@@ -37,7 +37,14 @@ public class MyOptional<T> {
         return emptyOptional;
     }
 
+    public static <T> MyOptional<T> of(T element) {
+        if (element == null) {
+            throw new NullPointerException("Cannot create MyOptional with null value");
+        }
+        return new MyOptional<>(element);
+    }
+
     public boolean isPresent() {
-        return false;
+        return this.value != null;
     }
 }
