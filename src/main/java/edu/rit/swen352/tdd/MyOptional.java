@@ -1,6 +1,7 @@
 package edu.rit.swen352.tdd;
 
 import java.util.NoSuchElementException;
+import java.util.function.Consumer;
 import java.util.function.Function;
 
 /**
@@ -66,6 +67,12 @@ public class MyOptional<T> {
             return empty();
         }
         return ofNullable(mapper.apply(value));
+    }
+
+    public void ifPresent(Consumer<? super T> action) {
+        if (isPresent()) {
+            action.accept(value);
+        }
     }
 
     public boolean isPresent() {
