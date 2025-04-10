@@ -63,4 +63,25 @@ class MyOptionalTest {
 
         assertThrows(NoSuchElementException.class, () -> optional.get());
     }
+
+    @DisplayName("Map test on a non null optional should apply the mapping function and return updated optional")
+    @Test
+    void mapNonNull() {
+        MyOptional<String> optional = MyOptional.of("short");
+
+        MyOptional<Integer> mapped = optional.map(String::length);
+
+        assertTrue(mapped.isPresent());
+        assertEquals(5, mapped.get());
+    }
+
+    @DisplayName("Map test on an empty optional should return an empty optional")
+    @Test
+    void mapNull() {
+        MyOptional<String> optional = MyOptional.empty();
+
+        MyOptional<Integer> mapped = optional.map(String::length);
+
+        assertFalse(mapped.isPresent());
+    }
 }
