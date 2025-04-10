@@ -30,4 +30,20 @@ class MyOptionalTest {
         assertThrows(NullPointerException.class, () -> MyOptional.of(null));
     }
 
+    @DisplayName("ofNullable with non null value, will return nonNull optional")
+    @Test
+    void ofNullableNonNull() {
+        MyOptional<String> optional = MyOptional.ofNullable("hello");
+
+        assertTrue(optional.isPresent());
+    }
+
+    @DisplayName("ofNullable with non null value, will return empty optional")
+    @Test
+    void ofNullableNull() {
+        MyOptional<String> optional = MyOptional.ofNullable(null);
+
+        assertFalse(optional.isPresent());
+    }
+
 }
