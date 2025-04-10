@@ -17,4 +17,14 @@ package edu.rit.swen352.tdd;
  * @param <T> the type of elements in the stack.
  */
 public class MyStack<T> {
+    private int capacity;
+
+    public MyStack(int capacity) {
+        this.capacity = 0;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
 }
