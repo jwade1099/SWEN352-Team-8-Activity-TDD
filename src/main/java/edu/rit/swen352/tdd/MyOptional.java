@@ -24,4 +24,20 @@ package edu.rit.swen352.tdd;
  * @param <T> the type of element.
  */
 public class MyOptional<T> {
+    private static final MyOptional<?> EMPTY = new MyOptional<>();
+
+    private final T value;
+
+    private MyOptional() {
+        this.value = null;
+    }
+
+    public static <T> MyOptional<T> empty() {
+        MyOptional<T> emptyOptional = (MyOptional<T>) EMPTY;
+        return emptyOptional;
+    }
+
+    public boolean isPresent() {
+        return false;
+    }
 }
