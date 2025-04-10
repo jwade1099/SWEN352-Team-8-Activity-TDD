@@ -1,5 +1,7 @@
 package edu.rit.swen352.tdd;
 
+import java.util.NoSuchElementException;
+
 /**
  * MyOptional contains a single element or nothing at all.
  *
@@ -49,6 +51,13 @@ public class MyOptional<T> {
             return empty();
         }
         return of(element);
+    }
+
+    public T get() {
+        if (!isPresent()) {
+            throw new NoSuchElementException("No value provided in MyOptional");
+        }
+        return value;
     }
 
     public boolean isPresent() {
