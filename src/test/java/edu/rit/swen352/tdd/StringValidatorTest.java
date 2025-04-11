@@ -1,4 +1,10 @@
 package edu.rit.swen352.tdd;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
 /**
  * StringValidator provides utility methods for setting rules to validate strings.
  *
@@ -14,4 +20,36 @@ package edu.rit.swen352.tdd;
  */
 public class StringValidatorTest {
 
+    @DisplayName("Testing a string valid without min length requirement")
+    @Test
+    public void testMinLengthNull() {
+        StringValidator validator = new StringValidator();
+        validator.minLength(null);
+        assertTrue(validator.validate("test"));
+    }
+
+    @DisplayName("Testing a valid string with a set min length")
+    @Test
+    public void testMinLengthNonNullValid() {
+        StringValidator validator = new StringValidator();
+        validator.minLength(3);
+        assertTrue(validator.validate("test"));
+    }
+
+
+    @DisplayName("Testing an invalid string with a set min length")
+    @Test
+    public void testMinLengthNonNullInvalid() {
+        StringValidator validator = new StringValidator();
+        validator.minLength(3);
+        assertFalse(validator.validate("aa"));
+    }
+
+    @DisplayName("Testing a min length exception (setting a min length with max length set")
+    @Test
+    public void testMinLengthException() {
+        StringValidator validator = new StringValidator();
+        validator.maxLength(5);
+        assertThrows(IllegalStateException.class, validator.minLength(3));
+    }
 }
