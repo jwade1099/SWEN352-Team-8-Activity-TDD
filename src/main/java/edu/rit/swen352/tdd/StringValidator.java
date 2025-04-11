@@ -4,8 +4,8 @@ package edu.rit.swen352.tdd;
  *
  * <p>Behaviors:
  * <ul>
- *     <li>minLength(Integer value): set the minimum length the string must be to be valid (null == no limit)</li>
- *     <li>maxLength(Integer value): set the maximum length teh string must be to be valid (null == no limit)</li>
+ *     <li>minLength(Integer value): set the minimum length the string must be to be valid (null == no limit) cannot be > maxLength or it will throw an IllegalStateException</li>
+ *     <li>maxLength(Integer value): set the maximum length teh string must be to be valid (null == no limit) cannot be < minLength or it will throw an IllegalStateException</li>
  *     <li>onlyLetters(boolean value): set the requirement that the validated string must be only letters. If onlyNumeric is set to True throws a IllegalStateException as the validation would contradict</li>
  *     <li>onlyNumeric(boolean value): set the requirement that the validated string must be only letters. If onlyLetters is set to True throws a IllegalStateException as the validation would contradict</li>
  *     <li>mustContainSpecialChars(boolean true): set requirement that it must contain special chars like ('-', '!', '_', etc.). Throws an IllegalStateException if either onlyNumbers or onlyLetters is set to true.</li>
