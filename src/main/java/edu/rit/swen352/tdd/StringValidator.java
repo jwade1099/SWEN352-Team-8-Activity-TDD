@@ -14,4 +14,40 @@ package edu.rit.swen352.tdd;
  */
 public class StringValidator {
 
+    private Integer minLength;
+    private Integer maxLength;
+    private boolean onlyLetters;
+    private boolean onlyNumeric;
+    private boolean mustContainSpecialChars;
+
+
+    public StringValidator() {
+        this.minLength = null;
+        this.maxLength = null;
+        this.onlyLetters = false;
+        this.onlyNumeric = false;
+        this.mustContainSpecialChars = false;
+    }
+
+    public void minLength(Integer minLength) {
+        if (this.maxLength != null && this.maxLength < minLength) {
+           throw new IllegalStateException("You cannot set a min length greater than max length");
+        }
+        this.minLength = minLength;
+    }
+
+    public void maxLength(Integer maxLength) {
+        this.maxLength = maxLength;
+    }
+
+    public boolean validate(String input) {
+        if (minLength != null) {
+            if (input.length() < minLength) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
 }

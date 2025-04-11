@@ -50,6 +50,6 @@ public class StringValidatorTest {
     public void testMinLengthException() {
         StringValidator validator = new StringValidator();
         validator.maxLength(5);
-        assertThrows(IllegalStateException.class, validator.minLength(3));
+        assertThrows(IllegalStateException.class, () -> validator.minLength(6));
     }
 }
