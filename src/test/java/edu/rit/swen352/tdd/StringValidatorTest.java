@@ -45,9 +45,42 @@ public class StringValidatorTest {
         assertFalse(validator.validate("aa"));
     }
 
-    @DisplayName("Testing a min length exception (setting a min length with max length set")
+    @DisplayName("Testing a min length exception (setting a min length with max length set lower than it")
     @Test
     public void testMinLengthException() {
+        StringValidator validator = new StringValidator();
+        validator.maxLength(5);
+        assertThrows(IllegalStateException.class, () -> validator.minLength(6));
+    }
+
+    @DisplayName("Testing a string valid without max length requirement")
+    @Test
+    public void testMaxLengthNull() {
+        StringValidator validator = new StringValidator();
+        validator.minLength(null);
+        assertTrue(validator.validate("test"));
+    }
+
+    @DisplayName("Testing a valid string with a set min length")
+    @Test
+    public void testMaxLengthNonNullValid() {
+        StringValidator validator = new StringValidator();
+        validator.maxLength(5);
+        assertTrue(validator.validate("test"));
+    }
+
+
+    @DisplayName("Testing an invalid string with a set min length")
+    @Test
+    public void testMaxLengthNonNullInvalid() {
+        StringValidator validator = new StringValidator();
+        validator.maxLength(1);
+        assertFalse(validator.validate("aa"));
+    }
+
+    @DisplayName("Testing a max length exception (setting a max length smaller than the min length set")
+    @Test
+    public void testMaxLengthException() {
         StringValidator validator = new StringValidator();
         validator.maxLength(5);
         assertThrows(IllegalStateException.class, () -> validator.minLength(6));
