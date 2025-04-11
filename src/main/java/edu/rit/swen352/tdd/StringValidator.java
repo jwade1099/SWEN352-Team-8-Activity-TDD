@@ -37,12 +37,21 @@ public class StringValidator {
     }
 
     public void maxLength(Integer maxLength) {
+        if (this.maxLength != null && this.maxLength > minLength) {
+            throw new IllegalStateException("You cannot set a max length less than the minimum length");
+        }
         this.maxLength = maxLength;
     }
 
     public boolean validate(String input) {
         if (minLength != null) {
             if (input.length() < minLength) {
+                return false;
+            }
+        }
+
+        if (maxLength != null) {
+            if (input.length() > maxLength) {
                 return false;
             }
         }
