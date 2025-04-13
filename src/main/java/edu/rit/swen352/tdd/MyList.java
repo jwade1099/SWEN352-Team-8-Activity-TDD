@@ -55,4 +55,9 @@ public class MyList<T> {
         }
         if(found) this.arr = newArr;
     }
+
+    public boolean isEmpty(){
+        if(this.arr.length == 0) return true;
+        return false;
+    }
 }
