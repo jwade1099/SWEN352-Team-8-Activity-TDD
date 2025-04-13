@@ -24,4 +24,9 @@ public class MyList<T> {
     public MyList(T... args){
         this.arr = args;
     }
+
+    public T get(int i){
+        if(i >= arr.length || i < 0) throw new java.util.NoSuchElementException();
+        return arr[i];
+    }
 }
