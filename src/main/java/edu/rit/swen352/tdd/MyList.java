@@ -60,4 +60,8 @@ public class MyList<T> {
         if(this.arr.length == 0) return true;
         return false;
     }
+
+    public int size(){
+        return this.arr.length;
+    }
 }
