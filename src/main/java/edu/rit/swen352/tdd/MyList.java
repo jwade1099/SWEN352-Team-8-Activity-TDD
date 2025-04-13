@@ -64,4 +64,8 @@ public class MyList<T> {
     public int size(){
         return this.arr.length;
     }
+
+    public void forEach(java.util.function.Consumer<T> consumer){
+        for(T e : this.arr) consumer.accept(e);
+    }
 }
