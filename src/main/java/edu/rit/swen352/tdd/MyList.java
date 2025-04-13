@@ -19,4 +19,9 @@ package edu.rit.swen352.tdd;
  * @param <T> the type of elements in the list.
  */
 public class MyList<T> {
+    private T[] arr;
+
+    public MyList(T... args){
+        this.arr = args;
+    }
 }
