@@ -1,5 +1,7 @@
 package edu.rit.swen352.tdd;
 
+import java.util.Arrays;
+
 /**
  * MyList is a flexible-sized sequence of elements with no gaps.
  *
@@ -26,7 +28,15 @@ public class MyList<T> {
     }
 
     public T get(int i){
-        if(i >= arr.length || i < 0) throw new java.util.NoSuchElementException();
-        return arr[i];
+        if(i >= this.arr.length || i < 0) throw new java.util.NoSuchElementException();
+        return this.arr[i];
+    }
+
+    public void add(T element){
+        for(T e : this.arr){
+            if(e == element) return;
+        }
+        this.arr = Arrays.copyOf(this.arr, this.arr.length + 1);
+        this.arr[this.arr.length - 1] = element;
     }
 }
