@@ -24,4 +24,18 @@ class MyListTest {
         MyList<String> list = new MyList<String>("First", "Second", "Third");
         assertThrows(java.util.NoSuchElementException.class, () -> list.get(5));
     }
+
+    @Test
+    void addWorking(){
+        MyList<String> list = new MyList<String>("First", "Second", "Third");
+        list.add("Fourth");
+        assertEquals("Fourth", list.get(3));
+    }
+
+    @Test
+    void addNop(){
+        MyList<String> list = new MyList<String>("First", "Second", "Third");
+        list.add("Third");
+        assertThrows(java.util.NoSuchElementException.class, () -> list.get(3));
+    }
 }
