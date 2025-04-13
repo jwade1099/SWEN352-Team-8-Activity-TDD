@@ -59,4 +59,12 @@ class MyListTest {
         MyList<String> list = new MyList<String>("First", "Second", "Third");
         assertEquals(3, list.size());
     }
+
+    @Test
+    void forEach(){
+        MyList<String> list = new MyList<String>("First", "Second", "Third");
+        String[] x = new String[1];
+        list.forEach((e) -> x[0] = e);
+        assertEquals("Third", x[0]);
+    }
 }
