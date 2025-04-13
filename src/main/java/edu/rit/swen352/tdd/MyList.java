@@ -39,4 +39,20 @@ public class MyList<T> {
         this.arr = Arrays.copyOf(this.arr, this.arr.length + 1);
         this.arr[this.arr.length - 1] = element;
     }
+
+    public void remove(T element){
+        T[] newArr = Arrays.copyOf(arr, this.arr.length - 1);
+        int arrCount = 0;
+        boolean found = false;
+        for(int i = 0; i < this.arr.length; i++){
+            if(this.arr[i] == element){
+                found = true;
+                continue;
+            }
+            if(arrCount == this.arr.length - 1) continue;
+            newArr[arrCount] = this.arr[i];
+            arrCount++;
+        }
+        if(found) this.arr = newArr;
+    }
 }
