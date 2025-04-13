@@ -17,4 +17,9 @@ public class Calculator {
         for(float value : values) sum += value;
         return sum;
     }
+
+    public float subtract(float first, float ...values){
+        for(float value : values) first -= value;
+        return first;
+    }
 }
