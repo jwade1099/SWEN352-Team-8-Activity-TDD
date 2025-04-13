@@ -53,4 +53,10 @@ class MyListTest {
         list.remove("First");
         assertTrue(list.isEmpty());
     }
+
+    @Test
+    void size(){
+        MyList<String> list = new MyList<String>("First", "Second", "Third");
+        assertEquals(3, list.size());
+    }
 }
