@@ -38,4 +38,11 @@ class MyListTest {
         list.add("Third");
         assertThrows(java.util.NoSuchElementException.class, () -> list.get(3));
     }
+
+    @Test
+    void remove(){
+        MyList<String> list = new MyList<String>("First", "Second", "Third");
+        list.remove("Second");
+        assertEquals("Third", list.get(1));
+    }
 }
