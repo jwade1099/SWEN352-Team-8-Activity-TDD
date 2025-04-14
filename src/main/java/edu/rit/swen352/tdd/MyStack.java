@@ -28,7 +28,7 @@ public class MyStack<T> {
         this.capacity = capacity;
         //T[] array = Arrays.copyOf(arr, capacity); GENERIC TYPE ARRAYS CONFUSING ME
         array = new int[capacity];
-        this.top = -1;
+        this.top = 0;
     }
 
     public MyStack() {
@@ -41,7 +41,13 @@ public class MyStack<T> {
     }
 
     public void push(int element) {
-        throw new IllegalStateException() ;
+        array[top] = element;
+        top++;
+
+        if (top == 0) {
+            throw new IllegalStateException() ;
+        }
+        
     }
 
 }
