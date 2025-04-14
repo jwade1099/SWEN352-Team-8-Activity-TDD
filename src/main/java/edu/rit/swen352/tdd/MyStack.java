@@ -20,7 +20,11 @@ public class MyStack<T> {
     private int capacity;
 
     public MyStack(int capacity) {
-        this.capacity = 0;
+        this.capacity = capacity;
+    }
+
+    public MyStack() {
+        this.capacity = 16;
     }
 
     public int getCapacity() {

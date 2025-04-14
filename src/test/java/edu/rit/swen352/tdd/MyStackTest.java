@@ -17,5 +17,11 @@ class MyStackTest {
         assertEquals(capacity, stack.getCapacity());
     }
 
+    @Test
+    void testConstructorNoCapacity() {
+        MyStack<Integer> stack = new MyStack<>();
+        assertEquals(16, stack.getCapacity());
+    }
+
 
 }
