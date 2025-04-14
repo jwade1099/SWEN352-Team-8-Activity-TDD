@@ -68,6 +68,10 @@ public class MyStack<T> {
         return top == 0;
     }
 
+    public int getSize() {
+        return top - 1;
+    }
+
 
     // public static void main(String[] args) {
     //     MyStack<Integer> stack = new MyStack<>();

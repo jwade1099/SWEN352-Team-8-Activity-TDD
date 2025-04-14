@@ -47,4 +47,17 @@ class MyStackTest {
         assertEquals(false, stack.isEmpty());
     }
 
+    @Test 
+    void Testsize() {
+        MyStack<Integer> stack = new MyStack<>();
+        stack.push(12);
+        stack.push(13);
+        stack.push(14);
+        stack.push(15);
+        stack.push(16);
+
+        assertEquals(5, stack.getSize());
+
+    }
+
 }
