@@ -42,5 +42,9 @@ public class MyBank {
         }
         this.checking += amount;
     }
+
+    public void withdraw(double amount, boolean isSavings) {
+        
+    }
     
 }

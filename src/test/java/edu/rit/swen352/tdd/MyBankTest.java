@@ -26,4 +26,15 @@ public class MyBankTest {
         bank.deposit(50.50, false);
         assertEquals(50.50, bank.getBalance(false));
     }
+
+    @Test
+    void testWithdraw() {
+        MyBank bank = new MyBank();
+        bank.deposit(100.0, false);
+        assertEquals(100.0, bank.getBalance(false));
+        bank.withdraw(40.0, false);
+        assertEquals(60.0, bank.getBalance(false));
+    }
+
+
 }
