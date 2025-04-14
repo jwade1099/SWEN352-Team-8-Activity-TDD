@@ -22,19 +22,19 @@ import java.util.NoSuchElementException;
  */
 public class MyStack<T> {
     private int capacity;
-    private int[] array;
+    private int[] arr;
     private int top;
 
     public MyStack(int capacity) {
         this.capacity = capacity;
         //T[] array = Arrays.copyOf(arr, capacity);  // GENERIC TYPE ARRAYS CONFUSING ME
-        array = new int[capacity];
+        this.arr = new int[capacity];
         this.top = 0;
     }
 
     public MyStack() {
         this.capacity = 16;
-        array = new int[capacity];
+        this.arr = new int[capacity];
         this.top = 0;
     }
 
@@ -43,7 +43,7 @@ public class MyStack<T> {
     }
 
     public void push(int element) {
-        array[top] = element;
+        this.arr[top] = element;
         top++;
 
         if (top == capacity) {
@@ -59,9 +59,24 @@ public class MyStack<T> {
             throw new NoSuchElementException();
         }
 
-        int result = array[top];
+        System.out.println("top: " + top + " array: " + arr[top]);
+        
         top--;
+        int result = this.arr[top];
+       
         return result;
     }
+
+
+    public static void main(String[] args) {
+        MyStack<Integer> stack = new MyStack<>();
+        stack.push(12);
+        stack.push(13);
+        stack.push(14);
+        
+
+        stack.pop();
+    }
+
 
 }
