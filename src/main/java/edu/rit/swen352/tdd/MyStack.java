@@ -58,25 +58,26 @@ public class MyStack<T> {
         if (top == 0) {
             throw new NoSuchElementException();
         }
-
-        System.out.println("top: " + top + " array: " + arr[top]);
-        
+        //System.out.println("top: " + top + " array: " + arr[top]);   
         top--;
         int result = this.arr[top];
-       
         return result;
     }
 
+    public boolean isEmpty() {
+        return top != 0;
+    }
 
-    public static void main(String[] args) {
-        MyStack<Integer> stack = new MyStack<>();
-        stack.push(12);
-        stack.push(13);
-        stack.push(14);
+
+    // public static void main(String[] args) {
+    //     MyStack<Integer> stack = new MyStack<>();
+    //     stack.push(12);
+    //     stack.push(13);
+    //     stack.push(14);
         
 
-        stack.pop();
-    }
+    //     stack.pop();
+    // }
 
 
 }
