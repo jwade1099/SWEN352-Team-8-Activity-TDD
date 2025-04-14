@@ -15,7 +15,7 @@ public class MyBankTest {
 
 
     @Test
-    void testConstructor() throws Exception {
+    void testConstructor(){
         MyBank bank = new MyBank();
         
     }

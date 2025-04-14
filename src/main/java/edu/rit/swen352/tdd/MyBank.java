@@ -20,11 +20,21 @@ package edu.rit.swen352.tdd;
  */
 
 public class MyBank {
-    private float checking;
-    private float savings;
+    private double checking;
+    private double savings;
 
-    public MyBank() throws Exception {
-        throw new Exception();
+    public MyBank()  {
+        this.checking = 0.0;
+        this.savings = 0.0;
+
+    }
+
+    public double getBalance(boolean isSavings) {
+        if (isSavings) {
+            return savings;
+        }
+
+        return checking;
 
     }
     
