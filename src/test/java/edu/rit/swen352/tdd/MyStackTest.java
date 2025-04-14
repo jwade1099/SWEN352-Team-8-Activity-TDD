@@ -23,5 +23,11 @@ class MyStackTest {
         assertEquals(16, stack.getCapacity());
     }
 
+    @Test
+    void testPush() {
+        MyStack<Integer> stack = new MyStack<>();
+        stack.push(12);
+    }
+
 
 }

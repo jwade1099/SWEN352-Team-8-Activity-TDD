@@ -1,5 +1,8 @@
 package edu.rit.swen352.tdd;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 /**
  * MyStack is a fixed-size, LIFO (last-in-first-out) stack.
  * @see <a href="https://en.wikipedia.org/wiki/Stack_(abstract_data_type)">Stack ADT</a>
@@ -18,17 +21,27 @@ package edu.rit.swen352.tdd;
  */
 public class MyStack<T> {
     private int capacity;
+    private int[] array;
+    private int top;
 
     public MyStack(int capacity) {
         this.capacity = capacity;
+        //T[] array = Arrays.copyOf(arr, capacity); GENERIC TYPE ARRAYS CONFUSING ME
+        array = new int[capacity];
+        this.top = -1;
     }
 
     public MyStack() {
         this.capacity = 16;
+        array = new int[capacity];
     }
 
     public int getCapacity() {
         return capacity;
+    }
+
+    public void push(int element) {
+        throw new IllegalStateException() ;
     }
 
 }
