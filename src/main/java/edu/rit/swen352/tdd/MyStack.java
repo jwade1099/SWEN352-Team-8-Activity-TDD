@@ -27,7 +27,7 @@ public class MyStack<T> {
 
     public MyStack(int capacity) {
         this.capacity = capacity;
-        //T[] array = Arrays.copyOf(arr, capacity);  // GENERIC TYPE ARRAYS CONFUSING ME
+        //T[] array = Arrays.copyOf(arr, capacity);  // GENERIC TYPE ARRAYS CONFUSING ME. IM SORRY
         this.arr = new int[capacity];
         this.top = 0;
     }
@@ -71,8 +71,5 @@ public class MyStack<T> {
     public int getSize() {
         return top;
     }
-
-
-
 
 }
