@@ -33,9 +33,14 @@ public class MyBank {
         if (isSavings) {
             return savings;
         }
-
         return checking;
+    }
 
+    public void deposit(double amount, boolean isSavings) {
+        if (isSavings) {
+            this.savings += amount + 1;
+        }
+        this.checking += amount + 1;
     }
     
 }

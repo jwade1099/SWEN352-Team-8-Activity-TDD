@@ -19,4 +19,11 @@ public class MyBankTest {
         MyBank bank = new MyBank();
         
     }
+
+    @Test
+    void testDepositAndCheck() {
+        MyBank bank = new MyBank();
+        bank.deposit(50.50, false);
+        assertEquals(50.50, bank.getBalance(false));
+    }
 }
