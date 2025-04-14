@@ -29,5 +29,15 @@ class MyStackTest {
         stack.push(12);
     }
 
+    @Test
+    void testPop() {
+        MyStack<Integer> stack = new MyStack<>();
+        stack.push(12);
+        stack.push(13);
+
+        assertEquals(13, stack.pop());
+       
+
+    }
 
 }

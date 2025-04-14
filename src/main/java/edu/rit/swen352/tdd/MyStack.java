@@ -2,6 +2,7 @@ package edu.rit.swen352.tdd;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.NoSuchElementException;
 
 /**
  * MyStack is a fixed-size, LIFO (last-in-first-out) stack.
@@ -26,7 +27,7 @@ public class MyStack<T> {
 
     public MyStack(int capacity) {
         this.capacity = capacity;
-        //T[] array = Arrays.copyOf(arr, capacity); GENERIC TYPE ARRAYS CONFUSING ME
+        //T[] array = Arrays.copyOf(arr, capacity);  // GENERIC TYPE ARRAYS CONFUSING ME
         array = new int[capacity];
         this.top = 0;
     }
@@ -34,6 +35,7 @@ public class MyStack<T> {
     public MyStack() {
         this.capacity = 16;
         array = new int[capacity];
+        this.top = 0;
     }
 
     public int getCapacity() {
@@ -44,10 +46,22 @@ public class MyStack<T> {
         array[top] = element;
         top++;
 
-        if (top == 0) {
+        if (top == capacity) {
             throw new IllegalStateException() ;
         }
+
+        System.out.println("top: " + top);
         
+    }
+
+    public int pop() {
+        if (top == 0) {
+            throw new NoSuchElementException();
+        }
+
+        int result = array[top];
+        top--;
+        return result;
     }
 
 }
