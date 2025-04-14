@@ -69,19 +69,10 @@ public class MyStack<T> {
     }
 
     public int getSize() {
-        return top - 1;
+        return top;
     }
 
 
-    // public static void main(String[] args) {
-    //     MyStack<Integer> stack = new MyStack<>();
-    //     stack.push(12);
-    //     stack.push(13);
-    //     stack.push(14);
-        
-
-    //     stack.pop();
-    // }
 
 
 }
