@@ -1,5 +1,9 @@
 package edu.rit.swen352.tdd;
 
+import java.util.NoSuchElementException;
+import java.util.function.Consumer;
+import java.util.function.Function;
+
 /**
  * MyOptional contains a single element or nothing at all.
  *
@@ -24,4 +28,54 @@ package edu.rit.swen352.tdd;
  * @param <T> the type of element.
  */
 public class MyOptional<T> {
+    private static final MyOptional<?> EMPTY = new MyOptional<>(null);
+
+    private final T value;
+
+    private MyOptional(T value) {
+        this.value = value;
+    }
+
+    public static <T> MyOptional<T> empty() {
+        MyOptional<T> emptyOptional = (MyOptional<T>) EMPTY;
+        return emptyOptional;
+    }
+
+    public static <T> MyOptional<T> of(T element) {
+        if (element == null) {
+            throw new NullPointerException("Cannot create MyOptional with null value");
+        }
+        return new MyOptional<>(element);
+    }
+
+    public static <T> MyOptional<T> ofNullable(T element) {
+        if (element == null) {
+            return empty();
+        }
+        return of(element);
+    }
+
+    public T get() {
+        if (!isPresent()) {
+            throw new NoSuchElementException("No value provided in MyOptional");
+        }
+        return value;
+    }
+
+    public <U> MyOptional<U> map(Function<? super T, ? extends U> mapper) {
+        if (!isPresent()) {
+            return empty();
+        }
+        return ofNullable(mapper.apply(value));
+    }
+
+    public void ifPresent(Consumer<? super T> action) {
+        if (isPresent()) {
+            action.accept(value);
+        }
+    }
+
+    public boolean isPresent() {
+        return this.value != null;
+    }
 }
